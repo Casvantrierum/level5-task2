@@ -2,6 +2,7 @@
   <dictionary name="casva">
     <words>
       <w>gamelist</w>
+      <w>gamelog</w>
     </words>
   </dictionary>
 </component>

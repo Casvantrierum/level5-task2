@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/GamelistFragment">
+    app:startDestination="@id/GamelogFragment">
 
     <fragment
-        android:id="@+id/GamelistFragment"
-        android:name="com.example.level5_task2.ui.GamelistFragment"
+        android:id="@+id/GamelogFragment"
+        android:name="com.example.level5_task2.ui.GamelogFragment"
         android:label="@string/gamelist_fragment_label"
-        tools:layout="@layout/fragment_gamelist">
+        tools:layout="@layout/fragment_gamelog">
 
         <action
-            android:id="@+id/action_GamelistFragment_to_AddGameFragment"
+            android:id="@+id/action_GamelogFragment_to_AddGameFragment"
             app:destination="@id/AddGameFragment" />
     </fragment>
     <fragment
@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_add_game">
 
         <action
-            android:id="@+id/action_AddGameFragment_to_GamelistFragment"
-            app:destination="@id/GamelistFragment" />
+            android:id="@+id/action_AddGameFragment_to_GamelogFragment"
+            app:destination="@id/GamelogFragment" />
     </fragment>
 </navigation>

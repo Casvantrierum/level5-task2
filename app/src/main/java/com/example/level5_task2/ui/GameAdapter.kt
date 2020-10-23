@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.level5_task2.R
 import com.example.level5_task2.model.Game
 import kotlinx.android.synthetic.main.item_game.view.*
+import java.text.SimpleDateFormat
 
 class GameAdapter(private val gamelog: List<Game>) : RecyclerView.Adapter<GameAdapter.ViewHolder>(){
 
@@ -15,6 +16,9 @@ class GameAdapter(private val gamelog: List<Game>) : RecyclerView.Adapter<GameAd
         fun databind(game: Game) {
             itemView.tvTitle.text = game.title
             itemView.tvPlatform.text = game.platform
+
+            val dateFormat = SimpleDateFormat("dd MMMM yyyy")
+            itemView.tvRelease.text = dateFormat.format(game.release)
         }
     }
 

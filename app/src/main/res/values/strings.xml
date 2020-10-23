@@ -11,4 +11,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title">Title</string>
     <string name="platform">Platform</string>
+    <string name="not_valid_game">This is not a valid game</string>
 </resources>

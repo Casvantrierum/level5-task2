@@ -60,7 +60,7 @@ class GamelogFragment : Fragment() {
         //createItemTouchHelper().attachToRecyclerView(rvGamelog)
     }
 
-    public fun addGame() {
+    fun addGame() {
         Log.i("ja", "jeej")
     }
 

@@ -43,13 +43,15 @@ class MainActivity : AppCompatActivity() {
     private fun fabToggler() {
         navController.addOnDestinationChangedListener { _,       destination, _ ->
             if (destination.id in arrayOf(R.id.AddGameFragment)) {
-                fab.setImageResource(android.R.drawable.ic_menu_save);
-                fab.setOnClickListener {
-                    navController.navigate(
-                        R.id.action_AddGameFragment_to_GamelogFragment
-                    )
-                }
+                fab.hide()
+//                fab.setImageResource(android.R.drawable.ic_menu_save);
+//                fab.setOnClickListener {
+//                    navController.navigate(
+//                        R.id.action_AddGameFragment_to_GamelogFragment
+//                    )
+//                }
             } else {
+                fab.show()
                 fab.setImageResource(android.R.drawable.ic_input_add);
                 fab.setOnClickListener {
                     navController.navigate(

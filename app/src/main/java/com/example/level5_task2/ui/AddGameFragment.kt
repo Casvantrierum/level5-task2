@@ -24,11 +24,11 @@ class SecondFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i("SETUP", "SETUP IN ON CREATE")
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         (activity as MainActivity?)?.supportActionBar?.title = "Add";//TODO hc string
         (activity as MainActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //(activity as MainActivity?)?.supportActionBar?.setDisplayShowHomeEnabled(true)
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +48,7 @@ class SecondFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.clear()
-        inflater.inflate(R.menu.menu_main, menu)
+        inflater.inflate(R.menu.menu_add_game, menu)
     }
 
     private fun onAddGame() {

@@ -2,10 +2,8 @@ package com.example.level5_task2.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -33,6 +31,7 @@ class GamelogFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         (activity as MainActivity?)?.supportActionBar?.title = "Game backlog";//TODO hc string
         (activity as MainActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
@@ -50,6 +49,23 @@ class GamelogFragment : Fragment() {
 
         initRv()
         observeAddGameResult()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.action_delete -> {
+            Log.i("HUTS", "HUTSER")
+            true
+        }
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onStart(){

@@ -1,6 +1,5 @@
 package com.example.level5_task2.ui
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -23,11 +22,10 @@ class SecondFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i("SETUP", "SETUP IN ON CREATE")
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-        (activity as MainActivity?)?.supportActionBar?.title = "Add";//TODO hc string
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+        (activity as MainActivity?)?.supportActionBar?.title = getString(R.string.add)
         (activity as MainActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //(activity as MainActivity?)?.supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
     override fun onCreateView(

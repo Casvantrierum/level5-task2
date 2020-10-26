@@ -1,25 +1,15 @@
 package com.example.level5_task2.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.level5_task2.R
 import com.example.level5_task2.model.Game
-import com.example.level5_task2.repository.GameRepository
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_gamelog.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -36,10 +26,8 @@ class GamelogFragment : Fragment() {
     private var gamelog: ArrayList<Game> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-        (activity as MainActivity?)?.supportActionBar?.title = "Game backlog";//TODO hc string
-        (activity as MainActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -76,7 +64,7 @@ class GamelogFragment : Fragment() {
 
     override fun onStart(){
         super.onStart()
-        (activity as MainActivity?)?.supportActionBar?.title = "Game backlog";//TODO hc string
+        (activity as MainActivity?)?.supportActionBar?.title = getString(R.string.game_backlog)
         (activity as MainActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
@@ -95,7 +83,7 @@ class GamelogFragment : Fragment() {
     }
 
     private fun observeAddGameResult() {
-        viewModel.gamelog.observe(viewLifecycleOwner, Observer { gamelog ->
+        viewModel.gamelog.observe(viewLifecycleOwner, { gamelog ->
             this@GamelogFragment.gamelog.clear()
             this@GamelogFragment.gamelog.addAll(gamelog)
             gameAdapter.notifyDataSetChanged()

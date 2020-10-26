@@ -1,7 +1,6 @@
 package com.example.level5_task2.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -21,7 +20,6 @@ class SecondFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.i("SETUP", "SETUP IN ON CREATE")
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
         (activity as MainActivity?)?.supportActionBar?.title = getString(R.string.add)

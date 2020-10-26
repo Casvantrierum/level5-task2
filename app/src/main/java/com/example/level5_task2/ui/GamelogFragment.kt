@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.level5_task2.R
 import com.example.level5_task2.model.Game
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_gamelog.*
+import kotlin.collections.ArrayList
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -122,6 +124,21 @@ class GamelogFragment : Fragment() {
     }
 
     private fun deleteAllGames() {
+        val gamelogBackUp: ArrayList<Game> = ArrayList(gamelog)
         viewModel.deleteAllGames()
+        Snackbar
+            .make(
+                requireView(),
+                getString(R.string.succes_delete),
+                Snackbar.LENGTH_LONG)
+            .setAction(
+                R.string.undo
+            ) {
+                for (game in gamelogBackUp){
+                    viewModel.insertGame(game)
+                }
+                Snackbar.make(requireView(), getString(R.string.undone),Snackbar.LENGTH_LONG).show()
+            }
+            .show()
     }
 }

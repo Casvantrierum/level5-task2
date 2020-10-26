@@ -18,4 +18,7 @@
     <string name="month">Month</string>
     <string name="add">Add</string>
     <string name="game_backlog">Game backlog</string>
+    <string name="undo">"undo "</string>
+    <string name="succes_delete">Succesfully deleted backlog</string>
+    <string name="undone">deletion undone</string>
 </resources>

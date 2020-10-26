@@ -1,17 +1,19 @@
 package com.example.level5_task2.ui
 
+import android.content.DialogInterface
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.core.content.ContextCompat
+import android.view.View
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.level5_task2.R
 import kotlinx.android.synthetic.main.activity_main.*
-import java.security.AccessController.getContext
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,11 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
             navController.navigate(
-                    R.id.action_GamelogFragment_to_AddGameFragment
+                R.id.action_GamelogFragment_to_AddGameFragment
             )
         }
 
         fabToggler()
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -41,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fabToggler() {
-        navController.addOnDestinationChangedListener { _,       destination, _ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in arrayOf(R.id.AddGameFragment)) {
                 fab.hide()
 //                fab.setImageResource(android.R.drawable.ic_menu_save);
@@ -63,12 +67,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+        if (item.getItemId() == android.R.id.home) {
+            findNavController(R.id.nav_host_fragment).popBackStack()
+            return true;
+        };
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">level5-task2</string>
+    <string name="app_name">Game backlog</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="gamelist_fragment_label">First Fragment</string>
@@ -12,5 +12,8 @@
     <string name="title">Title</string>
     <string name="platform">Platform</string>
     <string name="not_valid_game">This is not a valid game</string>
-    <string name="release">Release: %d</string>
+    <string name="release">Release: %t</string>
+    <string name="day">Day</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
 </resources>

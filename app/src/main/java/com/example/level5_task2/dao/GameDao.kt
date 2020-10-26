@@ -8,7 +8,7 @@ import com.example.level5_task2.model.Game
 @Dao
 interface GameDao {
 
-    @Query("SELECT * FROM gameTable")
+    @Query("SELECT * FROM gameTable ORDER BY release ASC")
     fun getGameLog(): LiveData<List<Game>>
 
     @Insert

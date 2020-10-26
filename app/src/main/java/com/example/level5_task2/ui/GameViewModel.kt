@@ -28,4 +28,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             gameRepository.deleteGame(game)
         }
     }
+
+    fun deleteAllGames() {
+        ioScope.launch {
+            gameRepository.deleteAllGames()
+        }
+    }
 }

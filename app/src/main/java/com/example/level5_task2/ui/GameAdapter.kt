@@ -22,7 +22,7 @@ class GameAdapter(private val gamelog: List<Game>) : RecyclerView.Adapter<GameAd
             itemView.tvTitle.text = game.title
             itemView.tvPlatform.text = game.platform
             val dateFormat = SimpleDateFormat("dd MMMM yyyy")
-            itemView.tvRelease.text = "TODO: " + dateFormat.format(game.release)//TODO
+            itemView.tvRelease.text = dateFormat.format(game.release)
         }
     }
 

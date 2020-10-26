@@ -13,13 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.level5_task2.R
 import com.example.level5_task2.model.Game
+import com.example.level5_task2.repository.GameRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_gamelog.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class GamelogFragment : Fragment() {
+
 
     private lateinit var gameAdapter: GameAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
@@ -58,7 +64,7 @@ class GamelogFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_delete -> {
-            Log.i("HUTS", "HUTSER")
+            deleteAllGames()
             true
         }
         else -> {
@@ -120,10 +126,14 @@ class GamelogFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
 
-                val reminderToDelete = gamelog[position]
-                viewModel.deleteGame(reminderToDelete)
+                val gameToDelete = gamelog[position]
+                viewModel.deleteGame(gameToDelete)
             }
         }
         return ItemTouchHelper(callback)
+    }
+
+    private fun deleteAllGames() {
+        viewModel.deleteAllGames()
     }
 }
